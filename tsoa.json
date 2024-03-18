@@ -1,0 +1,13 @@
+{
+  "entryFile": "src/app.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": ["src/**/controller/*.controller.ts"],
+  "spec": {
+    "outputDirectory": "src/spec",
+    "specVersion": 3
+  },
+  "routes": {
+    "routesDir": "build",
+    "iocModule": "src/common/core/ioc/core.ioc"
+  }
+}
