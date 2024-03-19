@@ -8,7 +8,7 @@
     }
   },
   "workspaceFolder": "/workspace",
-  "postCreateCommand": "npm install -g npm@10.2.5 && npm install -g @devcontainers/cli",
+  "postCreateCommand": "npm install -g npm@latest && npm install -g @devcontainers/cli",
   "customizations": {
     "vscode": {
         "extensions": [
