@@ -3,7 +3,13 @@ import { IDataPort } from '../types';
 import { DataPortError, DataPortErrorCode, DataPortErrorMessage } from './data.port.error';
 
 export class BaseDataPort implements IDataPort<any> {
-  constructor(private adapter: any, private logger: Logger) {}
+  private adapter: any;
+  private logger: Logger;
+
+  constructor(baseAdapter: any, logger: Logger) {
+    this.adapter = baseAdapter;
+    this.logger = logger;
+  }
 
   async create(data: any) {
     try {
