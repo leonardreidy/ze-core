@@ -1,6 +1,6 @@
 import{ Logger } from 'winston';
 import { logger as coreLogger } from '../../../logger/logger';
-import neo4j, { Driver } from 'neo4j-driver';
+import neo4j, { Driver, ServerInfo } from 'neo4j-driver';
 
 enum AdapterConfig {
   uri = 'neo4j://localhost:7687',
@@ -23,20 +23,29 @@ export class Neo4JAdapter {
       .catch((error) => logger.error(error));
   }
 
-  public static async create(data: any): Promise<any> {
-
+  public async create(data: any): Promise<void> {
+    Neo4JAdapter.logger.info('Creating data');
+    Neo4JAdapter.logger.info(data);
   }
 
-  public static async read(attributes: any): Promise<any> {
-
+  public async read(attributes: any): Promise<void> {
+    Neo4JAdapter.logger.info('Reading data');
+    Neo4JAdapter.logger.info(attributes);
   }
 
-  public static async update(attributes: any, data: any): Promise<any> {
-
+  public async update(attributes: any, data: any): Promise<void> {
+    Neo4JAdapter.logger.info('Updating data');
+    Neo4JAdapter.logger.info(attributes);
+    Neo4JAdapter.logger.info(data);
   }
 
-  public static async delete(attributes: any): Promise<any> {
+  public async delete(attributes: any): Promise<void> {
+    Neo4JAdapter.logger.info('Deleting data');
+    Neo4JAdapter.logger.info(attributes);
+  }
 
+  public static getServerInfo(): Promise<ServerInfo> {
+    return Neo4JAdapter.driver.getServerInfo();
   }
 
   public static getInstance(): Neo4JAdapter {
@@ -57,5 +66,4 @@ export class Neo4JAdapter {
       .catch((error) => Neo4JAdapter.logger.error(error));
     return;
   }
-
 }
