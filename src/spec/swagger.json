@@ -6,6 +6,51 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
+			"ServerInfo": {
+				"description": "Class for exposing server info from a result.",
+				"properties": {
+					"address": {
+						"type": "string"
+					},
+					"protocolVersion": {
+						"type": "number",
+						"format": "double"
+					},
+					"agent": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"DevInfo": {
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+					"serverInfo": {
+						"$ref": "#/components/schemas/ServerInfo"
+					}
+				},
+				"required": [
+					"message",
+					"serverInfo"
+				],
+				"type": "object",
+				"additionalProperties": {}
+			},
+			"DevModel": {
+				"properties": {
+					"data": {
+						"$ref": "#/components/schemas/DevInfo"
+					}
+				},
+				"required": [
+					"data"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"HealthModel": {
 				"properties": {
 					"status": {
@@ -158,6 +203,25 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
+		"/dev": {
+			"get": {
+				"operationId": "GetDevInfo",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DevModel"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
 		"/health": {
 			"get": {
 				"operationId": "GetHealth",
