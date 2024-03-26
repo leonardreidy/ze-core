@@ -30,7 +30,7 @@
     "typescript": "^5.3.3"
   },
   "scripts": {
-    "setup": "yarn generate:routes && yarn generate:spec yarn build",
+    "setup": "yarn && yarn generate:routes && yarn generate:spec yarn build",
     "build": "tsoa spec-and-routes && tsc",
     "start:dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
     "generate:routes": "tsoa routes",
