@@ -1,6 +1,7 @@
 {
   "name": "ze-core",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+  "forwardPorts": [7108],
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "18.17.0",
