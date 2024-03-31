@@ -203,7 +203,7 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
-		"/dev": {
+		"/dev/info": {
 			"get": {
 				"operationId": "GetDevInfo",
 				"responses": {
