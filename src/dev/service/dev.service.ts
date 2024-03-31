@@ -1,10 +1,10 @@
-import { singleton } from 'tsyringe';
+import { injectable } from 'tsyringe';
 import { DevModel } from '../model/dev.model';
 import { BaseDataPort } from '../../common/connectors/data/ports/base.data.port';
 import { Neo4JAdapter } from '../../common/connectors/data/adapters/neo4j.adapter';
 import { logger } from '../../common/logger/logger';
 
-@singleton()
+@injectable()
 export class DevService {
   private port: BaseDataPort;
   constructor() {
